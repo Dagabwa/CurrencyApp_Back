@@ -14,8 +14,8 @@ exports.conversion = async(username,MonneyCodeFrom,MonneyCodeTo,valueIn) =>{
           "rate":rate,
           "valueIn":valueIn,
           "valueOut":valueOut,
-      })
-      return valueOut;
+      });
+      return "result : "+valueOut+" "+currencyTo.MonneyCode;
   }
   catch (e) {
       throw new Error(e.message);

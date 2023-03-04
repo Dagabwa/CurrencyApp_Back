@@ -6,5 +6,5 @@ exports.create = async(data)=>{
 };
 
 exports.findByUser = async(username)=>{
-  return historyModel.find({username: username});
+  return historyModel.find({usernameUser: username});
 };
