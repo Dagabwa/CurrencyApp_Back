@@ -2,7 +2,7 @@ const router = require("express").Router();
 const currenciesService = require("./currencies.service");
 const historyService = require("../history/history.service");
 
-router.get("/currency/",async(req,res)=>{
+router.post("/currency",async(req,res)=>{
     try{
         return res.status(200).send(await currenciesService.conversion(req.user.username,req.body.isoFrom,req.body.isoTo,req.body.ValueIn));
     }

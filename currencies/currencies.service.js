@@ -15,7 +15,7 @@ exports.conversion = async(username,isoFrom,isoTo,valueIn) =>{
           "valueIn":valueIn,
           "valueOut":valueOut,
       });
-      return "result : "+valueOut+" "+currencyTo.iso;
+      return {"result" :valueOut};
   }
   catch (e) {
       throw new Error(e.message);
