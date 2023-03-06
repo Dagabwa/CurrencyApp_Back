@@ -4,7 +4,7 @@ const historyService = require("../history/history.service");
 
 router.get("/currency/",async(req,res)=>{
     try{
-        return res.status(200).send(await currenciesService.conversion(req.user.username,req.body.MonneyCodeFrom,req.body.MonneyCodeTo,req.body.ValueIn));
+        return res.status(200).send(await currenciesService.conversion(req.user.username,req.body.isoFrom,req.body.isoTo,req.body.ValueIn));
     }
     catch (e) {
         return res.status(404).send(e.message);

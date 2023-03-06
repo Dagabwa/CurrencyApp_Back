@@ -1,21 +1,21 @@
 const currenciesModel = require("./currencies.model");
 const historyService = require("../history/history.service");
 
-exports.conversion = async(username,MonneyCodeFrom,MonneyCodeTo,valueIn) =>{
+exports.conversion = async(username,isoFrom,isoTo,valueIn) =>{
   try{
-      const currencyFrom = await currenciesModel.findOne({MonneyCode: MonneyCodeFrom}).exec();
-      const currencyTo = await currenciesModel.findOne({MonneyCode: MonneyCodeTo}).exec();
-      const rate = currencyTo.Rate/currencyFrom.Rate;
+      const currencyFrom = await currenciesModel.findOne({iso: isoFrom}).exec();
+      const currencyTo = await currenciesModel.findOne({iso: isoTo}).exec();
+      const rate = currencyTo.rate/currencyFrom.rate;
       const valueOut = valueIn*rate;
       await historyService.create({
           "usernameUser":username,
-          "MonneyCodeFrom":MonneyCodeFrom,
-          "MonneyCodeTo":MonneyCodeTo,
+          "isoFrom":isoFrom,
+          "isoTo":isoTo,
           "rate":rate,
           "valueIn":valueIn,
           "valueOut":valueOut,
       });
-      return "result : "+valueOut+" "+currencyTo.MonneyCode;
+      return "result : "+valueOut+" "+currencyTo.iso;
   }
   catch (e) {
       throw new Error(e.message);

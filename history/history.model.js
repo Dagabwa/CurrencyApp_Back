@@ -5,11 +5,11 @@ const historySchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    MonneyCodeFrom: {
+    isoFrom: {
         type: String,
         required: true,
     },
-    MonneyCodeTo: {
+    isoTo: {
         type: String,
         required: true,
     },

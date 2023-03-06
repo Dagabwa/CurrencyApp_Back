@@ -1,14 +1,14 @@
 const mongoose = require('mongoose');
 const currencySchema = new mongoose.Schema({
-    MonneyCode: {
+    iso: {
         type: String,
         required: true,
     },
-    Name: {
+    name: {
         type: String,
         required: true,
     },
-    Rate: {
+    rate: {
         type: Number,
         required: true,
     },
